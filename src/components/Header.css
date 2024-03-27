@@ -1,0 +1,27 @@
+header {
+  padding: 15px;
+}
+
+header input {
+  flex: 1;
+  margin: 0 10% 0 10%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f5f6f7;
+  color: #979797;
+  font-size: 15px;
+  font-family: inherit;
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}

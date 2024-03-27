@@ -1,0 +1,39 @@
+.presentation {
+  position: relative;
+  height: 450px;
+  display: flex;
+  align-items: center;
+}
+
+.presentation img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.effet {
+  /* border: solid red 2px; */
+  z-index: -1;
+  width: 100vw;
+  right: -400px;
+  transform: rotate(-3deg);
+  bottom: -180px;
+}
+
+.main-image {
+  width: 100vw;
+  z-index: -2;
+}
+
+.call-to-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  padding: 30px 20px 30px 20px;
+  width: 382px;
+  height: 300px;
+  border-radius: 5px;
+  gap: 40px;
+}

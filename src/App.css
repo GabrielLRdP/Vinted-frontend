@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Maison Neue";
+}
+
+.container {
+  width: 1024px;
+  margin: auto;
+}
+
+button {
+  font-family: inherit;
+}
