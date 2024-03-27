@@ -14,7 +14,7 @@ const Offer = (props) => {
   } = props;
 
   return (
-    <Link to={"/offers/:" + _id} className="offer-home">
+    <Link to={"/offers/" + _id} className="offer-home">
       <div className="user-info">
         <img
           className="user-avatar"
