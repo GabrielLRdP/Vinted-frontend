@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Offer from "./pages/Offer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/offers/:id" element={<Offer />} />
         </Routes>
       </Router>
     </>

@@ -2,7 +2,7 @@ import mainImg from "../assets/img/home-image.jpg";
 import rippedEffect from "../assets/img/effet-dechire.svg";
 import axios from "axios";
 import { unseState, useEffect, useState } from "react";
-import Offer from "../components/OfferHome";
+import Offer from "../components/OfferHomePage";
 
 const Home = () => {
   // Récupère les données des offres depuis l'API Vinted et les stocke dans la variable "datas"
@@ -22,6 +22,7 @@ const Home = () => {
   }, []);
 
   const displayOffer = offerList.map((element) => {
+    console.log(element._id);
     return (
       <Offer
         title={element.product_name}
@@ -32,7 +33,8 @@ const Home = () => {
         date={element.product_date}
         owner={element.owner}
         image={element.product_image}
-        key={element.id}
+        key={element._id}
+        _id={element._id}
       />
     );
   });

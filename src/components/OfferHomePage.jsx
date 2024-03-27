@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 const Offer = (props) => {
   const {
     title,
@@ -8,11 +10,11 @@ const Offer = (props) => {
     pictures,
     image,
     date,
-    key,
+    _id,
   } = props;
 
   return (
-    <div className="offer-home">
+    <Link to={"/offers/:" + _id} className="offer-home">
       <div className="user-info">
         <img
           className="user-avatar"
@@ -29,7 +31,7 @@ const Offer = (props) => {
       <p className="price">{price + " €"}</p>
       {details[1].TAILLE ? <p className="size">{details[1].TAILLE}</p> : true}
       {details[0].MARQUE ? <p className="brand">{details[0].MARQUE}</p> : true}
-    </div>
+    </Link>
   );
 };
 
