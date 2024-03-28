@@ -22,7 +22,6 @@ const Home = () => {
   }, []);
 
   const displayOffer = offerList.map((element) => {
-    console.log(element._id);
     return (
       <Offer
         title={element.product_name}

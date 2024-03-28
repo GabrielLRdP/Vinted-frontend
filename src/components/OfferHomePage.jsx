@@ -18,7 +18,7 @@ const Offer = (props) => {
       <div className="user-info">
         <img
           className="user-avatar"
-          src={owner.account.avatar.secure_url}
+          src={owner.account.avatar?.secure_url}
           alt="User avatar"
         ></img>
         <p className="username">{owner.account.username}</p>

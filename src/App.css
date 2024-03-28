@@ -6,8 +6,12 @@
 
 body {
   font-family: "Maison Neue";
+  position: relative;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
 .container {
   width: 1224px;
   margin: auto;
