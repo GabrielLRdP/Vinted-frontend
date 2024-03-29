@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-const Offer = (props) => {
+const OfferDetails = (props) => {
   const {
     title,
     description,
@@ -35,4 +35,4 @@ const Offer = (props) => {
   );
 };
 
-export default Offer;
+export default OfferDetails;

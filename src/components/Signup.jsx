@@ -1,25 +1,35 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Signup = (props) => {
   const [inputUser, setInputUser] = useState({
     username: "",
     email: "",
     password: "",
-    newsletter: "off",
+    newsletter: false,
   });
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios.post("");
+    const response = await axios.post(
+      "https://site--backend--n5fkvp4ymxn4.code.run/user/signup",
+      inputUser
+    );
+
+    const token = response.data.infoLogded.token;
+    console.log(token);
+    Cookies.set("token", token, { expires: 10 });
+    Cookies.get("token");
   };
 
   const handleChange = (event) => {
     let newInputUser = { ...inputUser };
-    console.log(event.target.value);
-    event.target.className === "newsletter-check"
-      ? (newInputUser.newsletter = event.target.value)
-      : (newInputUser[event.target.className] = event.target.value);
-
+    if (event.target.type === "checkbox") {
+      newInputUser.newsletter = !newInputUser.newsletter;
+      event.target.value = !event.target.value;
+    } else {
+      newInputUser[event.target.className] = event.target.value;
+    }
     setInputUser(newInputUser);
     console.log(newInputUser);
   };
@@ -53,7 +63,7 @@ const Signup = (props) => {
         <div className="newsletter-check">
           <input
             type="checkbox"
-            checked={inputUser.newsletter ? "on" : "off"}
+            checked={inputUser.newsletter}
             onChange={handleChange}
           />
           <p>s'inscrire à notre newsletter</p>
