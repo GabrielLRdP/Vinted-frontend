@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import logo from "../assets/img/logo.svg";
 
 const Header = (props) => {
-  const { setVisibleSignup } = props;
+  const { setVisibleSignup, setVisibleLogin } = props;
 
   const [bodyClass, setBodyClass] = useState("");
 
   useEffect(() => {
     document.body.className = bodyClass;
   }, [bodyClass]);
-  const handleSignupClick = () => {
-    setVisibleSignup(true);
+  const handleClick = (func) => {
+    func(true);
     setBodyClass("no-scroll");
   };
 
@@ -22,12 +22,18 @@ const Header = (props) => {
         <div className="buttons">
           <button
             onClick={() => {
-              handleSignupClick();
+              handleClick(setVisibleSignup);
             }}
           >
             S'inscrire
           </button>
-          <button>Se connecter</button>
+          <button
+            onClick={() => {
+              handleClick(setVisibleLogin);
+            }}
+          >
+            Se connecter
+          </button>
           <button>Vends tes articles</button>
         </div>
       </div>

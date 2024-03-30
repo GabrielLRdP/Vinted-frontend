@@ -9,6 +9,7 @@
 }
 
 .signup-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,4 +49,12 @@
 
 .submit {
   margin: 30px;
+}
+
+.go-back-button {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #999999;
+  font-size: 15px;
 }
