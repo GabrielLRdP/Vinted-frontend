@@ -1,0 +1,71 @@
+.publish-page {
+  background-color: #eaecee;
+  padding-bottom: 50px;
+}
+
+.publish-page h1 {
+  font-size: 24px;
+  padding-top: 50px;
+  margin-bottom: 20px;
+}
+
+.publish-section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: white;
+  border: solid #666666 1px;
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.publish-photo {
+  padding: 100px;
+}
+
+.publish-element {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.publish-form input {
+  width: 50%;
+  border: none;
+  border-bottom: solid #e1e1e1 1px;
+  display: flex;
+  align-items: start;
+  padding: 5px;
+}
+
+.publish-form ::placeholder {
+  color: #b1b1b1;
+}
+
+.publish-description {
+  height: 200px;
+}
+
+.want-exchanges {
+  display: flex;
+  width: 50%;
+  justify-content: start;
+}
+
+.want-exchanges input {
+  width: 20px;
+}
+
+.publish-button-container {
+  display: flex;
+  justify-content: end;
+  padding-top: 40px;
+}
+
+.publish-button {
+  padding: 15px;
+  font-size: 16px;
+  line-height: 20px;
+}

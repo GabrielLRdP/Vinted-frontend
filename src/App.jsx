@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Cookies from "js-cookie";
+import Publish from "./pages/Publish";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offers/:id" element={<Offer />} />
+          <Route path="/publish" element={<Publish />} />
         </Routes>
       </Router>
     </>

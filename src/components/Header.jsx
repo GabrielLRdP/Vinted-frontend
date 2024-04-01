@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 import Signup from "./Signup";
 import Login from "./Login";
@@ -21,7 +22,9 @@ const Header = ({ token, handleToken }) => {
     <>
       <header>
         <div className="container">
-          <img src={logo} alt="Logo Vinted" />
+          <Link to="/">
+            <img src={logo} alt="Logo Vinted" />
+          </Link>
           <input type="text" placeholder="Recherche des articles" />
           <div className="buttons">
             {token ? (
@@ -49,7 +52,9 @@ const Header = ({ token, handleToken }) => {
                 </button>
               </>
             )}
-            <button>Vends tes articles</button>
+            <Link to="/publish">
+              <button>Vends tes articles</button>
+            </Link>
           </div>
         </div>
       </header>
