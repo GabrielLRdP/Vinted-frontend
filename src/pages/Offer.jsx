@@ -13,12 +13,13 @@ const Offer = () => {
       "https://lereacteur-vinted-api.herokuapp.com/offer/" + id
     );
     setOffer(newOffer.data);
+    console.log(newOffer);
     const productDetails = newOffer.data.product_details;
     const newDetailsDisplay = productDetails.map((element, index) => {
       return (
-        <div key={index}>
-          <p>{Object.keys(element)[0]}</p>
-          <p>{element[Object.keys(element)[0]]}</p>
+        <div className="element-description" key={index}>
+          <p className="key">{Object.keys(element)[0]}</p>
+          <p className="element">{element[Object.keys(element)[0]]}</p>
         </div>
       );
     });
@@ -33,17 +34,24 @@ const Offer = () => {
     <main className="main-offer-page">
       <img src={offer.product_image.secure_url} alt="" />
       <div className="offer-details">
-        <p className="offer-price">{`${offer.product_price} €`}</p>
-        <p className="offer-name">{offer.product_name}</p>
-        <p className="offer-condition">{detailsDisplay}</p>
-        <div className="owner-details">
-          <img
-            className="user-avatar"
-            src={offer.owner.account.avatar?.secure_url}
-            alt=""
-          />
-          <p className="Offer-username">{offer.owner.account.username}</p>
+        <div className="top-details">
+          <p className="offer-price">{`${offer.product_price} €`}</p>
+          {/*  */}
+          <p className="offer-condition">{detailsDisplay}</p>
         </div>
+        <div className="bottom-details">
+          <p className="offer-name">{offer.product_name}</p>
+          <p className="offer-description">{offer.product_description}</p>
+          <div className="owner-details">
+            <img
+              className="user-avatar"
+              src={offer.owner.account.avatar?.secure_url}
+              alt=""
+            />
+            <p className="Offer-username">{offer.owner.account.username}</p>
+          </div>
+        </div>
+        <button className="button-acheter">Acheter</button>
       </div>
     </main>
   ) : (
