@@ -3,8 +3,8 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 
 const Login = (props) => {
-  const { setVisibleLogin, setBodyClass } = props;
-  const [serverResponse, setServerResponse] = useState();
+  const { setVisibleLogin, setBodyClass, token, handleToken } = props;
+  const [serverResponse, setServerResponse] = useState("");
   const [inputUser, setInputUser] = useState({
     email: "",
     password: "",
@@ -14,7 +14,6 @@ const Login = (props) => {
     let newInputUser = { ...inputUser };
     newInputUser[event.target.className] = event.target.value;
     setInputUser(newInputUser);
-    console.log(newInputUser);
   };
 
   const handleSubmit = async (event) => {
@@ -26,11 +25,8 @@ const Login = (props) => {
         "https://site--backend--n5fkvp4ymxn4.code.run/user/login",
         inputUser
       );
-      if (response.connected) {
-        const token = response.data.infoLogded.token;
-        Cookies.set("token", token, { expires: 10 });
-        Cookies.get("token");
-      }
+
+      handleToken(response.data.token);
     } catch (error) {
       setServerResponse(error.response.data.message);
     }

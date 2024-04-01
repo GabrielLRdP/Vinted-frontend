@@ -3,7 +3,7 @@ import logo from "../assets/img/logo.svg";
 import Signup from "./Signup";
 import Login from "./Login";
 
-const Header = () => {
+const Header = ({ token, handleToken }) => {
   const [bodyClass, setBodyClass] = useState("");
   const [visibleSignup, setVisibleSignup] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
@@ -24,20 +24,31 @@ const Header = () => {
           <img src={logo} alt="Logo Vinted" />
           <input type="text" placeholder="Recherche des articles" />
           <div className="buttons">
-            <button
-              onClick={() => {
-                handleClick(setVisibleSignup);
-              }}
-            >
-              S'inscrire
-            </button>
-            <button
-              onClick={() => {
-                handleClick(setVisibleLogin);
-              }}
-            >
-              Se connecter
-            </button>
+            {token ? (
+              <button
+                className="login-out-button"
+                onClick={() => handleToken(null)}
+              >
+                Se Déconnecter
+              </button>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    handleClick(setVisibleSignup);
+                  }}
+                >
+                  S'inscrire
+                </button>
+                <button
+                  onClick={() => {
+                    handleClick(setVisibleLogin);
+                  }}
+                >
+                  Se connecter
+                </button>
+              </>
+            )}
             <button>Vends tes articles</button>
           </div>
         </div>
@@ -46,11 +57,15 @@ const Header = () => {
         visible={visibleSignup}
         setVisibleSignup={setVisibleSignup}
         setBodyClass={setBodyClass}
+        token={token}
+        handleToken={handleToken}
       />
       <Login
         visible={visibleLogin}
         setVisibleLogin={setVisibleLogin}
         setBodyClass={setBodyClass}
+        token={token}
+        handleToken={handleToken}
       />
     </>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const Signup = (props) => {
-  const { setVisibleSignup, setBodyClass } = props;
+  const { setVisibleSignup, setBodyClass, token, handleToken } = props;
   const [inputUser, setInputUser] = useState({
     username: "",
     email: "",
@@ -21,9 +21,7 @@ const Signup = (props) => {
         "https://site--backend--n5fkvp4ymxn4.code.run/user/signup",
         inputUser
       );
-      const token = response.data.infoLogded.token;
-      Cookies.set("token", token, { expires: 10 });
-      Cookies.get("token");
+      handleToken(response.data.token);
     } catch (error) {
       setServerResponse(error.response.data.message);
     }

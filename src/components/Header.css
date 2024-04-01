@@ -25,3 +25,8 @@ header .buttons {
   justify-content: space-between;
   gap: 15px;
 }
+
+.login-out-button {
+  border: #c2175b;
+  background-color: #c2175b;
+}
