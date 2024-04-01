@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const Signup = (props) => {
-  const { setVisibleSignup } = props;
+  const { setVisibleSignup, setBodyClass } = props;
   const [inputUser, setInputUser] = useState({
     username: "",
     email: "",
@@ -51,6 +51,7 @@ const Signup = (props) => {
           className="go-back-button"
           onClick={() => {
             setVisibleSignup(false);
+            setBodyClass("");
           }}
         >
           Retour

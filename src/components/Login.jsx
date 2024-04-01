@@ -3,7 +3,7 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 
 const Login = (props) => {
-  const { setVisibleLogin } = props;
+  const { setVisibleLogin, setBodyClass } = props;
   const [serverResponse, setServerResponse] = useState();
   const [inputUser, setInputUser] = useState({
     email: "",
@@ -26,13 +26,13 @@ const Login = (props) => {
         "https://site--backend--n5fkvp4ymxn4.code.run/user/login",
         inputUser
       );
-      const token = response.data.infoLogded.token;
-      Cookies.set("token", token, { expires: 10 });
-      Cookies.get("token");
+      if (response.connected) {
+        const token = response.data.infoLogded.token;
+        Cookies.set("token", token, { expires: 10 });
+        Cookies.get("token");
+      }
     } catch (error) {
-      setServerResponse(
-        error.response ? error.response.data.message : error.message
-      );
+      setServerResponse(error.response.data.message);
     }
 
     if (response && response.status === 200) {
@@ -47,6 +47,7 @@ const Login = (props) => {
           className="go-back-button"
           onClick={() => {
             setVisibleLogin(false);
+            setBodyClass("");
           }}
         >
           Retour

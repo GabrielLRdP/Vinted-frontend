@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+.presentation h1 {
+  font-size: 34px;
+  font-weight: lighter;
+}
+
 .presentation img {
   height: 100%;
   object-fit: cover;

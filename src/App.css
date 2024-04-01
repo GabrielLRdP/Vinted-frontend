@@ -19,4 +19,10 @@ body {
 
 button {
   font-family: inherit;
+  background-color: #2baeb7;
+  padding: 10px;
+  border-radius: 5px;
+  border: solid #2baeb7 1px;
+  color: white;
+  text-align: center;
 }
