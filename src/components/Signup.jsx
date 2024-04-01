@@ -1,8 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
+  const navigate = useNavigate();
   const { setVisibleSignup, setBodyClass, token, handleToken } = props;
   const [inputUser, setInputUser] = useState({
     username: "",
@@ -28,6 +30,7 @@ const Signup = (props) => {
 
     if (response && response.status === 200) {
       setVisibleSignup(false);
+      setBodyClass("");
     }
   };
 
@@ -50,6 +53,7 @@ const Signup = (props) => {
           onClick={() => {
             setVisibleSignup(false);
             setBodyClass("");
+            navigate("/");
           }}
         >
           Retour

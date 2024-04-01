@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 import Signup from "./Signup";
 import Login from "./Login";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ token, handleToken }) => {
+  const navigate = useNavigate();
   const [bodyClass, setBodyClass] = useState("");
   const [visibleSignup, setVisibleSignup] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
@@ -30,7 +32,10 @@ const Header = ({ token, handleToken }) => {
             {token ? (
               <button
                 className="login-out-button"
-                onClick={() => handleToken(null)}
+                onClick={() => {
+                  handleToken(null);
+                  navigate("/");
+                }}
               >
                 Se Déconnecter
               </button>
@@ -53,7 +58,15 @@ const Header = ({ token, handleToken }) => {
               </>
             )}
             <Link to="/publish">
-              <button>Vends tes articles</button>
+              <button
+                onClick={() => {
+                  if (!token) {
+                    handleClick(setVisibleLogin);
+                  }
+                }}
+              >
+                Vends tes articles
+              </button>
             </Link>
           </div>
         </div>
@@ -71,6 +84,7 @@ const Header = ({ token, handleToken }) => {
         setBodyClass={setBodyClass}
         token={token}
         handleToken={handleToken}
+        setVisibleSignup={setVisibleSignup}
       />
     </>
   );

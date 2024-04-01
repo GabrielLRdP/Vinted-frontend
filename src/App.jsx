@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offers/:id" element={<Offer />} />
-          <Route path="/publish" element={<Publish />} />
+          <Route path="/publish" element={<Publish token={token} />} />
         </Routes>
       </Router>
     </>

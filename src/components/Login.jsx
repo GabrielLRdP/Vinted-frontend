@@ -1,9 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const { setVisibleLogin, setBodyClass, token, handleToken } = props;
+  const navigate = useNavigate();
+  const {
+    setVisibleLogin,
+    setVisibleSignup,
+    setBodyClass,
+    token,
+    handleToken,
+  } = props;
   const [serverResponse, setServerResponse] = useState("");
   const [inputUser, setInputUser] = useState({
     email: "",
@@ -33,6 +41,7 @@ const Login = (props) => {
 
     if (response && response.status === 200) {
       setVisibleLogin(false);
+      setBodyClass("");
     }
   };
 
@@ -44,6 +53,7 @@ const Login = (props) => {
           onClick={() => {
             setVisibleLogin(false);
             setBodyClass("");
+            navigate("/");
           }}
         >
           Retour
@@ -63,7 +73,15 @@ const Login = (props) => {
           value={inputUser.password}
           onChange={handleChange}
         />
-        <button>Connetez-vous</button>
+        <button>Connectez-vous</button>
+        <p
+          onClick={() => {
+            setVisibleLogin(false);
+            setVisibleSignup(true);
+          }}
+        >
+          Pas de compte ? Cliquez ici pour vous inscrire
+        </p>
         {serverResponse ? <p>{serverResponse}</p> : true}
       </form>
     </div>
