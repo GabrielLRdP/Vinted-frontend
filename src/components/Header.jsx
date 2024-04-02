@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import logo from "../assets/img/logo.svg";
 import Signup from "./Signup";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ token, handleToken }) => {
+const Header = ({ token, handleToken, search, setSearch }) => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [bodyClass, setBodyClass] = useState("");
   const [visibleSignup, setVisibleSignup] = useState(false);
   const [visibleLogin, setVisibleLogin] = useState(false);
-  const [isLogedIn, setIsLogedIn] = useState(false);
 
   useEffect(() => {
     document.body.className = bodyClass;
@@ -20,6 +26,15 @@ const Header = ({ token, handleToken }) => {
     setBodyClass("no-scroll");
   };
 
+  const handleSearchChange = (event) => {
+    setSearch(event.target.value);
+  };
+  useEffect(() => {
+    if (location.pathname === "/publish" && !token) {
+      handleClick(setVisibleLogin);
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <header>
@@ -27,7 +42,12 @@ const Header = ({ token, handleToken }) => {
           <Link to="/">
             <img src={logo} alt="Logo Vinted" />
           </Link>
-          <input type="text" placeholder="Recherche des articles" />
+          <input
+            type="text"
+            placeholder="Recherche des articles"
+            value={search}
+            onChange={handleSearchChange}
+          />
           <div className="buttons">
             {token ? (
               <button
@@ -58,15 +78,7 @@ const Header = ({ token, handleToken }) => {
               </>
             )}
             <Link to="/publish">
-              <button
-                onClick={() => {
-                  if (!token) {
-                    handleClick(setVisibleLogin);
-                  }
-                }}
-              >
-                Vends tes articles
-              </button>
+              <button>Vends tes articles</button>
             </Link>
           </div>
         </div>

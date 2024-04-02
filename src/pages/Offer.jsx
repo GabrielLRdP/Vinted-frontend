@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Offer = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [offer, setOffer] = useState();
   const [detailsDisplay, setDetailsDisplay] = useState();
@@ -51,7 +53,19 @@ const Offer = () => {
             <p className="Offer-username">{offer.owner.account.username}</p>
           </div>
         </div>
-        <button className="button-acheter">Acheter</button>
+        <button
+          className="button-acheter"
+          onClick={() => {
+            navigate("/payment", {
+              state: {
+                title: offer.product_name,
+                price: offer.product_price,
+              },
+            });
+          }}
+        >
+          Acheter
+        </button>
       </div>
     </main>
   ) : (

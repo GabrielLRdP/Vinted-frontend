@@ -31,13 +31,17 @@
   width: 100%;
 }
 
-.publish-form input {
+.publish-form input,
+textarea {
   width: 50%;
   border: none;
   border-bottom: solid #e1e1e1 1px;
   display: flex;
   align-items: start;
   padding: 5px;
+  font-family: inherit;
+  font-size: 15px;
+  resize: none;
 }
 
 .publish-form ::placeholder {

@@ -71,10 +71,9 @@ const Publish = ({ token }) => {
             </div>
             <div className="publish-element">
               <label htmlFor="description">Décris ton article</label>
-              <input
+              <textarea
                 name="description"
                 className="publish-description"
-                type="textarea"
                 placeholder="ex: Porté quelquefois, taille correctement"
                 value={inputUser.description}
                 onChange={handleChange}

@@ -3,23 +3,26 @@ import rippedEffect from "../assets/img/effet-dechire.svg";
 import axios from "axios";
 import { unseState, useEffect, useState } from "react";
 import OfferDetails from "../components/OfferHomePage";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ search, token }) => {
+  const navigate = useNavigate();
   // Récupère les données des offres depuis l'API Vinted et les stocke dans la variable "datas"
   let datas;
   let [offerList, setOfferList] = useState([]);
 
-  const fetchData = async () => {
+  const fetchData = async (search) => {
     datas = await axios.get(
-      "https://lereacteur-vinted-api.herokuapp.com/offers"
+      `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
     );
     setOfferList(datas.data.offers);
+    console.log(search);
   };
 
   // Appelle la fonction fetchData() pour récupérer les données des offres lorsque le composant est monté
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(search);
+  }, [search]);
 
   const displayOffer = offerList.map((element) => {
     return (
@@ -46,7 +49,13 @@ const Home = () => {
         <div className="container">
           <div className="call-to-action">
             <h1>Prêt à faire du tri dans vos placards ?</h1>
-            <button>commencer à vendre</button>
+            <button
+              onClick={() => {
+                navigate("/publish");
+              }}
+            >
+              commencer à vendre
+            </button>
           </div>
         </div>
       </section>
