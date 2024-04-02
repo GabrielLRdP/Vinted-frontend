@@ -39,7 +39,7 @@ const Offer = () => {
         <div className="top-details">
           <p className="offer-price">{`${offer.product_price} €`}</p>
           {/*  */}
-          <p className="offer-condition">{detailsDisplay}</p>
+          <div className="offer-condition">{detailsDisplay}</div>
         </div>
         <div className="bottom-details">
           <p className="offer-name">{offer.product_name}</p>
@@ -59,7 +59,7 @@ const Offer = () => {
             navigate("/payment", {
               state: {
                 title: offer.product_name,
-                price: offer.product_price,
+                price: Number(offer.product_price) * 100,
               },
             });
           }}

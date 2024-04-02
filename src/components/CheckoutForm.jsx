@@ -47,12 +47,12 @@ const CheckoutForm = () => {
     if (stripeResponse.error) {
       setErrorMessage(stripeResponse.error.message);
     }
-  };
-  if (stripeResponse.paymentIntent.status === "succeeded") {
-    setCompleted(true);
-  }
+    if (stripeResponse.paymentIntent.status === "succeeded") {
+      setCompleted(true);
+    }
 
-  setIsLoading(false);
+    setIsLoading(false);
+  };
 
   return completed ? (
     <p>Paiement effectué</p>

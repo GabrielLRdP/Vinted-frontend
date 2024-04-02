@@ -1,0 +1,60 @@
+.main-payment-page {
+  background-color: #ebedee;
+  height: 100vh;
+  padding: 70px;
+}
+
+.payment-recap {
+  background-color: white;
+  width: 80%;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  padding: 50px;
+}
+
+.payment-title {
+  color: #999999;
+  margin-bottom: 50px;
+}
+
+.payment-element {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.payment-element p {
+  color: #666666;
+}
+
+.payment-details {
+  padding-bottom: 80px;
+  border-bottom: solid #999999 1px;
+}
+
+.total {
+  font-weight: bold;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.total p {
+  color: black;
+}
+
+.description {
+  margin-bottom: 50px;
+}
+
+.main-payment-page button {
+  margin-top: 35px;
+  line-height: 30px;
+}
+
+.main-payment-page form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
