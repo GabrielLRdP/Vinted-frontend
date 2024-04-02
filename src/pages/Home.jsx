@@ -13,9 +13,9 @@ const Home = ({ search, token }) => {
 
   const fetchData = async (search) => {
     datas = await axios.get(
-      `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
+      `https://site--backend--n5fkvp4ymxn4.code.run/offers?title=${search}`
     );
-    setOfferList(datas.data.offers);
+    setOfferList(datas.data);
     console.log(search);
   };
 

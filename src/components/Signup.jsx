@@ -13,15 +13,23 @@ const Signup = (props) => {
     newsletter: false,
   });
   const [serverResponse, setServerResponse] = useState();
+  const [file, setFile] = useState({});
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     let response;
+    const formData = new FormData();
+    const keys = Object.keys(inputUser);
+    keys.forEach((element) => {
+      formData.append(element, inputUser[element]);
+    });
+    // formData.append();
+    formData.append("picture", file);
 
     try {
       response = await axios.post(
         "https://site--backend--n5fkvp4ymxn4.code.run/user/signup",
-        inputUser
+        formData
       );
       handleToken(response.data.token);
     } catch (error) {
@@ -80,6 +88,12 @@ const Signup = (props) => {
             value={inputUser.password}
             onChange={handleChange}
           />
+          <input
+            type="file"
+            onChange={(event) => {
+              setFile(event.target.files[0]);
+            }}
+          />
         </div>
         <div className="newsletter-check">
           <input
@@ -93,7 +107,9 @@ const Signup = (props) => {
           En m'inscrivant, je confirme avoir lu et accepté les Termes &
           Conditions ...
         </p>
-        <button className="submit">Sinscrire</button>
+        <button type="submit" className="submit">
+          Sinscrire
+        </button>
         {serverResponse ? <p>{serverResponse}</p> : true}
       </form>
     </div>
