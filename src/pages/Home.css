@@ -3,6 +3,7 @@
   height: 450px;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .presentation h1 {
@@ -17,12 +18,15 @@
 }
 
 .effet {
-  /* border: solid red 2px; */
-  z-index: -1;
-  width: 100vw;
-  right: -400px;
-  transform: rotate(-3deg);
-  bottom: -180px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  background-image: url("https://static.vinted.com/_next/static/media/tear.884480420945b3afd77b44a6c5f98567.svg");
+  background-position: bottom -1px right -1px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .main-image {
