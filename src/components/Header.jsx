@@ -1,4 +1,11 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSearch,
+  faSortUp,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
+import Switch from "react-switch";
 import {
   BrowserRouter as Router,
   Routes,
@@ -9,9 +16,19 @@ import {
 import logo from "../assets/img/logo.svg";
 import Signup from "./Signup";
 import Login from "./Login";
+import Slider from "./Slider.jsx";
 import { useNavigate } from "react-router-dom";
 
-const Header = ({ token, handleToken, search, setSearch }) => {
+const Header = ({
+  token,
+  handleToken,
+  search,
+  setSearch,
+  values,
+  setValues,
+  priceAscending,
+  setPriceAscending,
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [bodyClass, setBodyClass] = useState("");
@@ -42,12 +59,58 @@ const Header = ({ token, handleToken, search, setSearch }) => {
           <Link to="/">
             <img src={logo} alt="Logo Vinted" />
           </Link>
-          <input
-            type="text"
-            placeholder="Recherche des articles"
-            value={search}
-            onChange={handleSearchChange}
-          />
+          <div className="research">
+            <div className="searchbar-container">
+              <FontAwesomeIcon icon={faSearch} size="1x" color="#979797" />
+              <input
+                type="text"
+                placeholder="Recherche des articles"
+                value={search}
+                onChange={handleSearchChange}
+              />
+            </div>
+            <div className="filters">
+              <label className="price-filter">
+                <span>Trier par prix:</span>
+                <Switch
+                  onChange={() => {
+                    setPriceAscending(!priceAscending);
+                  }}
+                  checked={priceAscending}
+                  onColor="#2CB1BA"
+                  offColor="#2CB1BA"
+                  onHandleColor="#ebedee"
+                  offHandleColor="#ebedee"
+                  height={20}
+                  width={40}
+                  handleDiameter={22}
+                  checkedIcon={null}
+                  uncheckedIcon={null}
+                  checkedHandleIcon={
+                    <div className="switchIconContainer">
+                      <FontAwesomeIcon
+                        icon={faSortDown}
+                        size="1x"
+                        color="black"
+                      />
+                    </div>
+                  }
+                  uncheckedHandleIcon={
+                    <div className="switchIconContainer up">
+                      <FontAwesomeIcon
+                        icon={faSortUp}
+                        size="1x"
+                        color="black"
+                      />
+                    </div>
+                  }
+                />
+              </label>
+              <div className="slider-container">
+                <Slider values={values} setValues={setValues} />
+              </div>
+            </div>
+          </div>
           <div className="buttons">
             {token ? (
               <button

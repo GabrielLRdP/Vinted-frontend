@@ -12,6 +12,8 @@ import Payment from "./pages/Payment";
 function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
   const [search, setSearch] = useState("");
+  const [values, setValues] = useState([0, 50]);
+  const [priceAscending, setPriceAscending] = useState(false);
 
   const handleToken = (token) => {
     if (token) {
@@ -27,13 +29,27 @@ function App() {
     <>
       <Router>
         <Header
+          values={values}
+          setValues={setValues}
           token={token}
           handleToken={handleToken}
           search={search}
           setSearch={setSearch}
+          priceAscending={priceAscending}
+          setPriceAscending={setPriceAscending}
         />
         <Routes>
-          <Route path="/" element={<Home search={search} token={token} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                search={search}
+                token={token}
+                values={values}
+                priceAscending={priceAscending}
+              />
+            }
+          />
           <Route path="/offers/:id" element={<Offer />} />
           <Route path="/publish" element={<Publish token={token} />} />
           <Route path="/payment" element={<Payment />} />

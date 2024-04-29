@@ -5,15 +5,18 @@ import { unseState, useEffect, useState } from "react";
 import OfferDetails from "../components/OfferHomePage";
 import { useNavigate } from "react-router-dom";
 
-const Home = ({ search, token }) => {
+const Home = ({ search, values, priceAscending }) => {
   const navigate = useNavigate();
   // Récupère les données des offres depuis l'API Vinted et les stocke dans la variable "datas"
   let datas;
   let [offerList, setOfferList] = useState([]);
+  let sort = "";
 
   const fetchData = async (search) => {
+    priceAscending ? (sort = "price-desc") : (sort = "price-asc");
+
     datas = await axios.get(
-      `https://site--backend--n5fkvp4ymxn4.code.run/offers?title=${search}`
+      `https://site--backend--n5fkvp4ymxn4.code.run/offers?title=${search}&priceMin=${values[0]}&priceMax=${values[1]}&sort=${sort}`
     );
     setOfferList(datas.data);
     console.log(search);
@@ -21,8 +24,10 @@ const Home = ({ search, token }) => {
 
   // Appelle la fonction fetchData() pour récupérer les données des offres lorsque le composant est monté
   useEffect(() => {
-    fetchData(search);
-  }, [search]);
+    setTimeout(() => {
+      fetchData(search);
+    }, 500);
+  }, [search, values, priceAscending]);
 
   const displayOffer = offerList.map((element) => {
     return (

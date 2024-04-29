@@ -1,0 +1,12 @@
+.slider-price-indicator {
+  background-color: "#2CB1BA";
+  z-index: 30;
+  width: 300%;
+  height: 300%;
+  font-size: 0.75em;
+  line-height: 1;
+  position: fixed;
+  top: -20px;
+  left: -100%;
+  text-align: center;
+}

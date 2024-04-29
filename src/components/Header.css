@@ -4,14 +4,12 @@ header {
 
 header input {
   flex: 1;
-  margin: 0 10% 0 10%;
-  padding: 10px;
-  border-radius: 5px;
   border: none;
   background-color: #f5f6f7;
   color: #979797;
   font-size: 15px;
   font-family: inherit;
+  margin-left: 20px;
 }
 header .container {
   display: flex;
@@ -29,4 +27,59 @@ header .buttons {
 .login-out-button {
   border: #c2175b;
   background-color: #c2175b;
+}
+
+.research {
+  display: flex;
+  flex-direction: column;
+  gap: 50;
+  width: 50%;
+}
+
+.filters {
+  height: 50%;
+  padding: 1px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+  align-items: end;
+}
+
+.slider-container {
+  height: 50%;
+  padding: 1px;
+  width: 50%;
+  padding-bottom: 5px;
+}
+
+.searchbar-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #f5f6f7;
+}
+
+.price-filter {
+  display: flex;
+  align-items: center;
+}
+
+.price-filter span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.switchIconContainer {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 100;
+}
+
+.up {
+  height: 100%;
+  align-items: end;
 }
