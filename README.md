@@ -4,6 +4,10 @@
 
 Ce projet est la partie frontend d'un clone du site Vinted, une plateforme de vente et d'achat de vêtements d'occasion. Il fait partie d'un exercice fullstack que j'ai du réaliser lors de ma romation au Reacteur. 
 
+## Capture d'écran 
+
+![Capture](https://github.com/GabrielLRdP/Vinted-frontend/assets/149192169/0c96f393-5530-4cca-839a-7ababa8850e0)
+
 ## Fonctionnalités
 
 - **Inscription/Authentification:** Les utilisateurs peuvent créer un compte ou se connecter avec leurs identifiants existants.
