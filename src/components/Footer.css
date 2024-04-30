@@ -1,0 +1,21 @@
+footer {
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 100px;
+  margin-top: 50px;
+}
+
+footer p,
+footer span {
+  font-size: 0.75em;
+  color: gray;
+}
+
+footer a {
+  text-decoration: underline;
+  font-size: 0.8em;
+  color: gray;
+}

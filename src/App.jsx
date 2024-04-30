@@ -8,6 +8,7 @@ import Offer from "./pages/Offer";
 import Cookies from "js-cookie";
 import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
+import Footer from "./components/Footer";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
@@ -55,6 +56,7 @@ function App() {
           <Route path="/payment" element={<Payment />} />
         </Routes>
       </Router>
+      <Footer />
     </>
   );
 }
