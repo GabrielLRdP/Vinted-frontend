@@ -8,6 +8,10 @@ Ce projet est la partie frontend d'un clone du site Vinted, une plateforme de ve
 
 ![Capture](https://github.com/GabrielLRdP/Vinted-frontend/assets/149192169/0c96f393-5530-4cca-839a-7ababa8850e0)
 
+## Lien
+
+Le projet est hébergé sur Netlify. Vous pouvez y accéder en suivant ce lien : [Consulter le site](https://vinted-gab.netlify.app)
+
 ## Fonctionnalités
 
 - **Inscription/Authentification:** Les utilisateurs peuvent créer un compte ou se connecter avec leurs identifiants existants.
