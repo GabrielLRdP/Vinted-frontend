@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet est la partie frontend d'un clone du site Vinted, une plateforme de vente et d'achat de vêtements d'occasion. Il fait partie d'un exercice fullstack que j'ai du réaliser lors de ma romation au Reacteur. Vous pouvez retrouver le repository du backend en [cliquant](https://github.com/GabrielLRdP/Vinted-Backend)
+Ce projet est la partie frontend d'un clone du site Vinted, une plateforme de vente et d'achat de vêtements d'occasion. Il fait partie d'un exercice fullstack que j'ai du réaliser lors de ma romation au Reacteur. Vous pouvez retrouver le repository du backend en [cliquant ici](https://github.com/GabrielLRdP/Vinted-Backend)
 
 
 ## Capture d'écran 
